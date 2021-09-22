@@ -11,7 +11,7 @@
 #include <tvm/replay_attack_protection/timestamp.hpp>
 #include <tvm/default_support_functions.hpp>
 
-//#include "circuit.hpp"
+#include "circuit.hpp"
 
 using namespace tvm;
 using namespace schema;
@@ -23,31 +23,31 @@ class CircuitUtil final : public smart_interface<ICircuitUtil>, public DCircuitU
 public:
 
   __always_inline
-  void constructor(uint256 pubkey) {
+  void constructor() {
   }
 
   __always_inline
-  Wittness generateWitness(uint32 a, uint32 b) {
-//    auto bp = generate_witness(27, 3);
-//
-//    dict_array<uint8> pi_bb {};
-//    auto pi_writer = primary_input_writer(bp);
-//    auto pi_write_iter = pi_bb.begin();
-//    pi_writer.write(pi_write_iter, pi_writer.length());
-//
-//    dict_array<uint8> ai_bb;
-//    auto ai_writer = auxiliary_input_writer(bp);
-//    auto ai_write_iter = ai_bb.begin();
-//    ai_writer.write(ai_write_iter, ai_writer.length());
-//    
-//    bytes primary_input;
-//    primary_input.assign(pi_bb.begin(), pi_bb.end());
-//    bytes auxiliary_input;    
-//    auxiliary_input.assign(ai_bb.begin(), ai_bb.end());
-//
+  Wittness generateWitness(uint32 a, uint32 x) {
+    auto bp = generate_witness(a.get(), x.get());
+
+    dict_array<uint8> pi_bb {};
+    auto pi_writer = primary_input_writer(bp);
+    auto pi_write_iter = pi_bb.begin();
+    pi_writer.write(pi_write_iter, pi_writer.length());
+
+    dict_array<uint8> ai_bb;
+    auto ai_writer = auxiliary_input_writer(bp);
+    auto ai_write_iter = ai_bb.begin();
+    ai_writer.write(ai_write_iter, ai_writer.length());
+    
+    bytes primary_input;
+    primary_input.assign(pi_bb.begin(), pi_bb.end());
+    bytes auxiliary_input;    
+    auxiliary_input.assign(ai_bb.begin(), ai_bb.end());
+
     Wittness w;
-//    w.primary_input = primary_input;
-//    w.auxiliary_input = auxiliary_input;
+    w.primary_input = primary_input;
+    w.auxiliary_input = auxiliary_input;
     return w;
   }
 

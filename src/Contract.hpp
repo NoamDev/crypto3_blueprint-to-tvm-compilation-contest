@@ -22,7 +22,7 @@ struct Wittness {
 __interface ICircuitUtil {
 
   [[external, dyn_chain_parse]]
-  void constructor(uint256 pubkey) = 1;
+  void constructor() = 1;
 
   [[getter]]
   Wittness generateWitness(uint32 a, uint32 b) = 2;

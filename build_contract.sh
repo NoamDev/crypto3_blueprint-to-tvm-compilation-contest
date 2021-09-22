@@ -4,7 +4,7 @@ rm -r toolchain/opt/work/llvm/install/include/*
 cp -r Compiler/llvm/projects/ton-compiler/cpp-sdk/* toolchain/opt/work/llvm/install/include/
 
 python3 toolchain/opt/work/llvm/install/bin/tvm-build++.py \
---abi src/Contract.abi.json \
+--abi src/Contract.abi \
 --cxxflags="-Ilibs/algebra/include \
 -Ilibs/block/include \
 -Ilibs/blueprint/include \

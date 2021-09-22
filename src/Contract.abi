@@ -10,7 +10,6 @@
   {
     "name": "constructor",
     "inputs": [
-    { "name":"pubkey", "type":"uint256" }
     ],
     "outputs": [
     ],
@@ -20,7 +19,7 @@
     "name": "generateWitness",
     "inputs": [
     { "name":"a", "type":"uint32" },
-    { "name":"b", "type":"uint32" }
+    { "name":"x", "type":"uint32" }
     ],
     "outputs": [
     { "name":"primary_input", "type":"bytes" },
