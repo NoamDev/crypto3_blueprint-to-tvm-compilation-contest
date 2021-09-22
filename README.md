@@ -9,7 +9,7 @@ src folder contains a file named circuit.hpp which contains an example circuit d
 
 the libs folder contains the crypto3-blueprint library and its dependencies, as well as the marshalling library.
 
-The folder Compiler contains the source code of the C++ compiler, you can build it yourself instead of downloading the prebuilt toolchain, but note that this can be time and disk space consuming.  You can do that according to the instructions at the README of https://github.com/tonlabs/TON-Compiler.
+The folder Compiler contains the source code of the C++ compiler, you can build it yourself instead of downloading the prebuilt toolchain, but note that this can be time and disk space consuming.  You can do that according to the instructions at the README of https://github.com/tonlabs/TON-Compiler. Don't forget to use -DCMAKE_BUILD_TYPE=Release flag, and using ninja is highly recommended, lld linker might also help.
 
 You've got two build scripts:
 * ./build_executable - would build src/main.cpp to bin/executable, it should work out of the box (It assumes you have g++ and boost installed though). It is meant for making sure there are no mistakes in circuit.hpp.
