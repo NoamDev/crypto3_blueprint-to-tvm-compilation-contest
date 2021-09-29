@@ -55,3 +55,6 @@ Mostly about missing header files.
 ./build_contract
 ```
 if successful a file `Contract.tvc` should appear in the directory `bin`. Its ABI file is already in the `src` directory.
+
+## A note about git submodules
+the directories under `libs` as well as the directory `Compiler` are git submodules. If you decide to change any of them, you should fork the original reposiories and change the submodule to point to your fork.
