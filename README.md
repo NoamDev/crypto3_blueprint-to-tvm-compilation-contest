@@ -23,14 +23,35 @@ $ cmake -DCMAKE_INSTALL_PREFIX=../../toolchain/opt/work/llvm/install \
 $ cmake --build . --target install-distribution
 ```
 
+Subsequent Builds can be done with just runnning `Compiler/build`:
+``` bash
+$ cmake --build . --target install-distribution
+```
+They should be very fast if no substantial changes were made.
+
 ## Repository Contents
 
-src folder contains a file named circuit.hpp which contains an example circuit definition, and main.cpp which is a simple Console app Contract.cpp which is a contract, both use circuit.hpp.
+* `src/circuit.hpp` - Contains an example circuit definition and can generate primary and auxiliary inputs.
+* `src/main.cpp` - A simple CLI app which includes `src/circuit.hpp` and prints the size of the primary and auxiliary inputs.
+* `src/contract.cpp` - A contract which includes `src/circuit.hpp` and has a getter that would return primary and auxiliary inputs for a given parameters.
 
-the libs folder contains the crypto3-blueprint library and its dependencies, as well as the marshalling library.
+* `libs` - contains the crypto3-blueprint library and its dependencies, as well as the marshalling library.
 
-You've got two build scripts:
-* ./build_executable - would build src/main.cpp to bin/executable, it should work out of the box (It assumes you have g++ and boost installed though). It is meant for making sure there are no mistakes in circuit.hpp.
-* ./build_contract - would build src/Contract.cpp to bin/Contract.tvc, it should have compiling errors and is meant to demosntrate the problems in the C++ SDK.
+* `Compiler` - contains the source code of the compiler, building as per instructions above should install it the binaries in the directory `toolchain`.
 
-If you modify other parts of the compiler, you might have to build the Compiler yourself for the changes to take effect.
+## Building the CLI app.
+The CLI app is mostly meant as a way to make sure there is nothing wrong with circuit.hpp.
+Requirements: Boost >= 1.74.
+``` bash
+./build_executable.sh
+```
+Should produce a binary on `bin/executable`.
+
+## Building the contract.
+The contract building would result in an error unless you do something about it:).
+Mostly about missing header files.
+
+``` bash
+./build_contract
+```
+if successful a file `Contract.tvc` should appear in the directory `bin`. Its ABI file is already in the `src` directory.
