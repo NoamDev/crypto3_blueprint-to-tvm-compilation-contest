@@ -17,7 +17,9 @@ It can be built without ninja and lld, but it would take longer. For more compil
 ``` bash
 $ cd Compiler
 $ mkdir build && cd build
-$ cmake -DCMAKE_INSTALL_PREFIX=../../toolchain/opt/work/llvm/install -DCMAKE_BUILD_TYPE=Release -DCMAKE_LINKER=lld -GNinja -C ../cmake/Cache/ton-compiler.cmake ../llvm
+$ cmake -DCMAKE_INSTALL_PREFIX=../../toolchain/opt/work/llvm/install \
+  -DCMAKE_BUILD_TYPE=Release -DCMAKE_LINKER=lld -GNinja \
+  -C  ../cmake/Cache/ton-compiler.cmake ../llvm
 $ cmake --build . --target install-distribution
 ```
 
