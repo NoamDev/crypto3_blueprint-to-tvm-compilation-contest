@@ -23,7 +23,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=../../toolchain/opt/work/llvm/install \
 $ cmake --build . --target install-distribution
 ```
 
-Subsequent Builds can be done with just runnning `Compiler/build`:
+Subsequent Builds can be done with just runnning from `Compiler/build`:
 ``` bash
 $ cmake --build . --target install-distribution
 ```
